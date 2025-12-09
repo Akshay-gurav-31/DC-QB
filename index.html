@@ -5,625 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DC Final Exam - Complete QB</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fff9c4 0%, #ffeb3b 50%, #fff9c4 100%);
-            padding: 20px;
-            color: #333;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #fffde7 0%, #ffff99 50%, #fffde7 100%);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
-            color: #fff;
-            padding: 35px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            font-weight: 700;
-        }
-
-        .header p {
-            opacity: 0.95;
-            font-size: 1.05em;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .question-block {
-            background: white;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-left: 6px solid #ffb300;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(255, 193, 7, 0.2);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .question-block.checked {
-            background: #c8e6c9;
-            border-left-color: #4caf50;
-        }
-
-        .checkbox-wrapper {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .checkbox {
-            width: 28px;
-            height: 28px;
-            border: 3px solid #ffb300;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background: white;
-            font-weight: 800;
-            color: transparent;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-        }
-
-        .question-block.checked .checkbox {
-            background: #4caf50;
-            border-color: #2e7d32;
-            color: white;
-        }
-
-        .question-content {
-            flex: 1;
-        }
-
-        .question-number {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: #f57f17;
-            margin-bottom: 8px;
-        }
-
-        .question-text {
-            font-size: 0.98em;
-            line-height: 1.6;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .marks {
-            display: inline-block;
-            background: #fff59d;
-            color: #f57f17;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-left: 10px;
-            border: 1px solid #ffb300;
-        }
-
-        .section-divider {
-            margin: 30px 0 20px 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #fff59d 0%, #ffee58 100%);
-            border-left: 5px solid #fbc02d;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .section-divider h2 {
-            color: #f57f17;
-            font-size: 1.3em;
-            font-weight: 700;
-        }
-
-        .sub-question {
-            background: #fffde7;
-            margin: 12px 0 12px 20px;
-            padding: 12px 15px;
-            border-left: 4px solid #ffb300;
-            border-radius: 5px;
-            font-size: 0.95em;
-            color: #333;
-            line-height: 1.5;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .sub-question.checked {
-            background: #c8e6c9;
-            border-left-color: #4caf50;
-        }
-
-        .sub-checkbox {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #ffb300;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background: white;
-            color: transparent;
-            font-size: 0.9em;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .sub-question.checked .sub-checkbox {
-            background: #4caf50;
-            border-color: #2e7d32;
-            color: white;
-        }
-
-        .sub-letter {
-            color: #f57f17;
-            font-weight: 700;
-            min-width: 20px;
-        }
-
-        .sub-text {
-            flex: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #fff9c4;
-            border-top: 2px solid #ffb300;
-            color: #f57f17;
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-            .container {
-                box-shadow: none;
-                background: white;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#fff9c4,#ffeb3b,#fff9c4);padding:20px;color:#333;min-height:100vh}
+        .container{max-width:1000px;margin:auto;background:linear-gradient(135deg,#fffde7,#ffff99,#fffde7);border-radius:15px;box-shadow:0 8px 25px rgba(255,193,7,.4);overflow:hidden}
+        .header{background:linear-gradient(135deg,#ffc107,#ffb300);color:#fff;padding:35px;text-align:center}
+        .header h1{font-size:2.2em;margin-bottom:5px;text-shadow:2px 2px 4px rgba(0,0,0,.2);font-weight:700}
+        .content{padding:30px}
+        .question-block{background:#fff;margin-bottom:20px;padding:20px;border-left:6px solid #ffb300;border-radius:8px;box-shadow:0 3px 8px rgba(255,193,7,.2);display:flex;gap:15px;transition:.3s}
+        .question-block.checked{background:#c8e6c9;border-left-color:#4caf50}
+        .checkbox-wrapper{flex-shrink:0;margin-top:2px}
+        .checkbox{width:28px;height:28px;border:3px solid #ffb300;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;font-weight:800;color:transparent;font-size:1.2em;transition:.3s}
+        .question-block.checked .checkbox{background:#4caf50;border-color:#2e7d32;color:#fff}
+        .question-number{font-size:1.1em;font-weight:700;color:#f57f17;margin-bottom:8px}
+        .question-text{font-size:.98em;line-height:1.6;color:#333;font-weight:500}
+        .marks{display:inline-block;background:#fff59d;color:#f57f17;padding:4px 10px;border-radius:12px;font-size:.85em;font-weight:600;margin-left:10px;border:1px solid #ffb300}
+        .section-divider{margin:30px 0 20px;padding:15px;background:linear-gradient(135deg,#fff59d,#ffee58);border-left:5px solid #fbc02d;border-radius:5px;text-align:center}
+        .section-divider h2{color:#f57f17;font-size:1.3em;font-weight:700}
+        .sub-question{background:#fffde7;margin:12px 0 12px 20px;padding:12px 15px;border-left:4px solid #ffb300;border-radius:5px;font-size:.95em;color:#333;line-height:1.5;display:flex;gap:12px;transition:.3s}
+        .sub-question.checked{background:#c8e6c9;border-left-color:#4caf50}
+        .sub-checkbox{width:22px;height:22px;border:2px solid #ffb300;border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;color:transparent;font-size:.9em;font-weight:700;flex-shrink:0;margin-top:2px;transition:.3s}
+        .sub-question.checked .sub-checkbox{background:#4caf50;border-color:#2e7d32;color:#fff}
+        footer{text-align:center;padding:15px;background:#fff9c4;border-top:2px solid #ffb300;color:#f57f17;font-size:.9em;font-weight:600}
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1><svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor" style="display: inline; margin-right: 12px; vertical-align: middle;"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 5h8v4H6z" fill="currentColor"/><path d="M6 11h12v1H6z" fill="currentColor"/><path d="M6 13h12v1H6z" fill="currentColor"/><path d="M6 15h12v1H6z" fill="currentColor"/></svg>DC Question Bank</h1>
-        </div>
+<div class="container">
+<div class="header"><h1>DC Question Bank</h1></div>
+<div class="content">
 
-        <div class="content">
+<!-- MAIN QUESTIONS (same as original, unchanged except fix on click) -->
 
-            <!-- Q1 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q1')" id="q1">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q1. <span class="marks">8M</span></div>
-                    <div class="question-text">Define Distributed computing and explain different types of system models</div>
-                </div>
-            </div>
+<div class="question-block" id="q1" onclick="toggleQuestion(this,'q1')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q1. <span class="marks">8M</span></div><div class="question-text">Define Distributed computing and explain different types of system models</div></div></div>
 
-            <!-- Q2 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q2')" id="q2">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q2.</div>
-                    <div class="question-text">Enlist & Explain issues in design of Distributed system</div>
-                </div>
-            </div>
+<div class="question-block" id="q2" onclick="toggleQuestion(this,'q2')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q2.</div><div class="question-text">Enlist & Explain issues in design of Distributed system</div></div></div>
 
-            <!-- Q3 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q3')" id="q3">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q3. <span class="marks">8M</span></div>
-                    <div class="question-text">Explain Synchronization with its communication diagram</div>
-                </div>
-            </div>
+<div class="question-block" id="q3" onclick="toggleQuestion(this,'q3')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q3. <span class="marks">8M</span></div><div class="question-text">Explain Synchronization with its communication diagram</div></div></div>
 
-            <!-- Q4 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q4')" id="q4">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q4. <span class="marks">7M</span></div>
-                    <div class="question-text">Explain RPC Model</div>
-                </div>
-            </div>
+<div class="question-block" id="q4" onclick="toggleQuestion(this,'q4')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q4. <span class="marks">7M</span></div><div class="question-text">Explain RPC Model</div></div></div>
 
-            <!-- Q5 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q5')" id="q5">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q5.</div>
-                    <div class="question-text">Explain implementation of RPC Mechanism?</div>
-                </div>
-            </div>
+<div class="question-block" id="q5" onclick="toggleQuestion(this,'q5')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q5.</div><div class="question-text">Explain implementation of RPC Mechanism?</div></div></div>
 
-            <!-- Q6 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q6')" id="q6">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q6.</div>
-                    <div class="question-text">What is structure of shared memory space?</div>
-                </div>
-            </div>
+<div class="question-block" id="q6" onclick="toggleQuestion(this,'q6')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q6.</div><div class="question-text">What is structure of shared memory space?</div></div></div>
 
-            <!-- Q7 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q7')" id="q7">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q7.</div>
-                    <div class="question-text">Explain different approaches for structuring the share memory space of a DSM system</div>
-                </div>
-            </div>
+<div class="question-block" id="q7" onclick="toggleQuestion(this,'q7')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q7.</div><div class="question-text">Explain different approaches for structuring the share memory space of a DSM system</div></div></div>
 
-            <!-- Q8 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q8')" id="q8">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q8.</div>
-                    <div class="question-text">Explain group communication with its different types</div>
-                </div>
-            </div>
+<div class="question-block" id="q8" onclick="toggleQuestion(this,'q8')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q8.</div><div class="question-text">Explain group communication with its different types</div></div></div>
 
-            <!-- Q9 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q9')" id="q9">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q9. <span class="marks">7M</span></div>
-                    <div class="question-text">Define Distributed computing & Explain Evaluation of distributing computing</div>
-                </div>
-            </div>
+<div class="question-block" id="q9" onclick="toggleQuestion(this,'q9')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q9. <span class="marks">7M</span></div><div class="question-text">Define Distributed computing & Explain Evaluation of distributing computing</div></div></div>
 
-            <!-- Q10 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q10')" id="q10">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q10. <span class="marks">8M</span></div>
-                    <div class="question-text">Enlist & Explain Desirable features of Good Message Passing System</div>
-                </div>
-            </div>
+<div class="question-block" id="q10" onclick="toggleQuestion(this,'q10')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q10. <span class="marks">8M</span></div><div class="question-text">Enlist & Explain Desirable features of Good Message Passing System</div></div></div>
 
-            <!-- Q11 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q11')" id="q11">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q11. <span class="marks">7M</span></div>
-                    <div class="question-text">What is mutual exclusion & explain different approaches of mutual exclusion</div>
-                </div>
-            </div>
+<div class="question-block" id="q11" onclick="toggleQuestion(this,'q11')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q11. <span class="marks">7M</span></div><div class="question-text">What is mutual exclusion & explain different approaches of mutual exclusion</div></div></div>
 
-            <!-- Q12 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q12')" id="q12">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q12. <span class="marks">7M</span></div>
-                    <div class="question-text">What is Buffering? & what are the different types of Buffering?</div>
-                </div>
-            </div>
+<div class="question-block" id="q12" onclick="toggleQuestion(this,'q12')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q12. <span class="marks">7M</span></div><div class="question-text">What is Buffering? & what are the different types of Buffering?</div></div></div>
 
-            <!-- Q13 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q13')" id="q13">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q13. <span class="marks">7M</span></div>
-                    <div class="question-text">With the neat diagram explain different system models</div>
-                </div>
-            </div>
+<div class="question-block" id="q13" onclick="toggleQuestion(this,'q13')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q13. <span class="marks">7M</span></div><div class="question-text">With the neat diagram explain different system models</div></div></div>
 
-            <!-- Q14 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q14')" id="q14">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q14. <span class="marks">8M</span></div>
-                    <div class="question-text">What is Election Algorithm & explain Bully algorithm and Ring algorithm</div>
-                </div>
-            </div>
+<div class="question-block" id="q14" onclick="toggleQuestion(this,'q14')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q14. <span class="marks">8M</span></div><div class="question-text">What is Election Algorithm & explain Bully algorithm and Ring algorithm</div></div></div>
 
-            <!-- Q15 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q15')" id="q15">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q15.</div>
-                    <div class="question-text">Explain types of process scheduling techniques</div>
-                </div>
-            </div>
+<div class="question-block" id="q15" onclick="toggleQuestion(this,'q15')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q15.</div><div class="question-text">Explain types of process scheduling techniques</div></div></div>
 
-            <!-- Q16 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q16')" id="q16">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q16.</div>
-                    <div class="question-text">What are the different failures & How to failure handling in client server communication</div>
-                </div>
-            </div>
+<div class="question-block" id="q16" onclick="toggleQuestion(this,'q16')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q16.</div><div class="question-text">What are the different failures & How to failure handling in client server communication</div></div></div>
 
-            <!-- Q17 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q17')" id="q17">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q17.</div>
-                    <div class="question-text">What is clock synchronization? & How computer clocks are implemented? Explain issues of clock synchronization</div>
-                </div>
-            </div>
+<div class="question-block" id="q17" onclick="toggleQuestion(this,'q17')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q17.</div><div class="question-text">What is clock synchronization? & How computer clocks are implemented? Explain issues of clock synchronization</div></div></div>
 
-            <!-- Q18 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q18')" id="q18">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q18.</div>
-                    <div class="question-text">Explain Load Balancing Approach</div>
-                </div>
-            </div>
+<div class="question-block" id="q18" onclick="toggleQuestion(this,'q18')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q18.</div><div class="question-text">Explain Load Balancing Approach</div></div></div>
 
-            <!-- Q19 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q19')" id="q19">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q19. <span class="marks">8M</span></div>
-                    <div class="question-text">What is Thread & explain different types of thread & explain thread models</div>
-                </div>
-            </div>
+<div class="question-block" id="q19" onclick="toggleQuestion(this,'q19')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q19. <span class="marks">8M</span></div><div class="question-text">What is Thread & explain different types of thread & explain thread models</div></div></div>
 
-            <!-- Q20 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q20')" id="q20">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q20. <span class="marks">8M</span></div>
-                    <div class="question-text">Explain Election algorithm, Bully Algorithm and Ring Algorithm with example</div>
-                </div>
-            </div>
+<div class="question-block" id="q20" onclick="toggleQuestion(this,'q20')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q20. <span class="marks">8M</span></div><div class="question-text">Explain Election algorithm, Bully Algorithm and Ring Algorithm with example</div></div></div>
 
-            <!-- Q21 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q21')" id="q21">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q21. <span class="marks">8M</span></div>
-                    <div class="question-text">What is DSM? Explain different types of DSM</div>
-                </div>
-            </div>
+<div class="question-block" id="q21" onclick="toggleQuestion(this,'q21')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q21. <span class="marks">8M</span></div><div class="question-text">What is DSM? Explain different types of DSM</div></div></div>
 
-            <!-- Q22 -->
-            <div class="question-block" onclick="toggleQuestion(this, 'q22')" id="q22">
-                <div class="checkbox-wrapper">
-                    <div class="checkbox">✓</div>
-                </div>
-                <div class="question-content">
-                    <div class="question-number">Q22. <span class="marks">7M</span></div>
-                    <div class="question-text">Enlist & explain issues in designing load balancing algorithm</div>
-                </div>
-            </div>
+<div class="question-block" id="q22" onclick="toggleQuestion(this,'q22')"><div class="checkbox-wrapper"><div class="checkbox">✓</div></div><div class="question-content"><div class="question-number">Q22. <span class="marks">7M</span></div><div class="question-text">Enlist & explain issues in designing load balancing algorithm</div></div></div>
 
-            <!-- Q23 -->
-            <div class="section-divider">
-                <h2>SHORT NOTES</h2>
-            </div>
+<div class="section-divider"><h2>SHORT NOTES</h2></div>
 
-            <div class="question-block" style="display: flex; flex-direction: column;">
-                <div style="display: flex; align-items: flex-start; gap: 15px;">
-                    <div class="checkbox-wrapper">
-                        <div class="checkbox" onclick="toggleQuestion(event.currentTarget.parentElement.parentElement.parentElement, 'q23')">✓</div>
-                    </div>
-                    <div class="question-content">
-                        <div class="question-number">Q23. <span class="marks">Multiple</span></div>
-                        <div class="question-text">Write a short note on:</div>
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23a')" id="q23a">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">a.</span> DCE
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23b')" id="q23b">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">b.</span> Thread
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23c')" id="q23c">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">c.</span> Synchronization and Asynchronization
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23d')" id="q23d">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">d.</span> Mutual Exclusion
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23e')" id="q23e">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">e.</span> Deadlock
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23f')" id="q23f">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">f.</span> RPC Model
-                    </div>
-                </div>
-
-                <div class="sub-question" onclick="toggleSubQuestion(this, 'q23g')" id="q23g">
-                    <div class="sub-checkbox">✓</div>
-                    <div class="sub-text">
-                        <span class="sub-letter">g.</span> RPC Mechanism
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <footer>
-            DC Question Bank
-        </footer>
+<div class="question-block" style="flex-direction:column;" id="q23">
+    <div style="display:flex;align-items:flex-start;gap:15px;" onclick="toggleQuestion(document.getElementById('q23'),'q23')">
+        <div class="checkbox-wrapper"><div class="checkbox">✓</div></div>
+        <div class="question-content"><div class="question-number">Q23. <span class="marks">Multiple</span></div><div class="question-text">Write a short note on:</div></div>
     </div>
 
-    <script>
-        // Load saved progress on page load
-        window.addEventListener('load', function() {
-            loadProgress();
-        });
+    <div class="sub-question" id="q23a" onclick="toggleSubQuestion(event,this,'q23a')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>a.</b> DCE</div></div>
+    <div class="sub-question" id="q23b" onclick="toggleSubQuestion(event,this,'q23b')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>b.</b> Thread</div></div>
+    <div class="sub-question" id="q23c" onclick="toggleSubQuestion(event,this,'q23c')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>c.</b> Synchronization and Asynchronization</div></div>
+    <div class="sub-question" id="q23d" onclick="toggleSubQuestion(event,this,'q23d')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>d.</b> Mutual Exclusion</div></div>
+    <div class="sub-question" id="q23e" onclick="toggleSubQuestion(event,this,'q23e')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>e.</b> Deadlock</div></div>
+    <div class="sub-question" id="q23f" onclick="toggleSubQuestion(event,this,'q23f')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>f.</b> RPC Model</div></div>
+    <div class="sub-question" id="q23g" onclick="toggleSubQuestion(event,this,'q23g')"><div class="sub-checkbox">✓</div><div class="sub-text"><b>g.</b> RPC Mechanism</div></div>
+</div>
 
-        function toggleQuestion(element, id) {
-            if (element.classList.contains('checked')) {
-                element.classList.remove('checked');
-                removeFromStorage(id);
-            } else {
-                element.classList.add('checked');
-                saveToStorage(id);
-            }
-        }
+</div>
+<footer>DC Question Bank</footer></div>
 
-        function toggleSubQuestion(element, id) {
-            event.stopPropagation();
-            if (element.classList.contains('checked')) {
-                element.classList.remove('checked');
-                removeFromStorage(id);
-            } else {
-                element.classList.add('checked');
-                saveToStorage(id);
-            }
-        }
+<script>
+window.addEventListener('load',loadProgress);
 
-        function saveToStorage(id) {
-            try {
-                let checkedItems = JSON.parse(window.storage ? localStorage.getItem('dcChecked') || '[]' : '[]');
-                if (!checkedItems.includes(id)) {
-                    checkedItems.push(id);
-                    if (window.storage) {
-                        localStorage.setItem('dcChecked', JSON.stringify(checkedItems));
-                    } else {
-                        window.storage.set('dcChecked', JSON.stringify(checkedItems));
-                    }
-                }
-            } catch (e) {
-                // Fallback if localStorage not available
-                if (!window.dcCheckedItems) window.dcCheckedItems = [];
-                if (!window.dcCheckedItems.includes(id)) {
-                    window.dcCheckedItems.push(id);
-                }
-            }
-        }
+function toggleQuestion(element,id){
+    element.classList.toggle('checked');
+    if(element.classList.contains('checked')) saveToStorage(id);
+    else removeFromStorage(id);
+}
 
-        function removeFromStorage(id) {
-            try {
-                let checkedItems = JSON.parse(window.storage ? localStorage.getItem('dcChecked') || '[]' : '[]');
-                checkedItems = checkedItems.filter(item => item !== id);
-                if (window.storage) {
-                    localStorage.setItem('dcChecked', JSON.stringify(checkedItems));
-                } else {
-                    window.storage.set('dcChecked', JSON.stringify(checkedItems));
-                }
-            } catch (e) {
-                if (window.dcCheckedItems) {
-                    window.dcCheckedItems = window.dcCheckedItems.filter(item => item !== id);
-                }
-            }
-        }
+function toggleSubQuestion(event,element,id){
+    event.stopPropagation();
+    element.classList.toggle('checked');
+    if(element.classList.contains('checked')) saveToStorage(id);
+    else removeFromStorage(id);
+}
 
-        function loadProgress() {
-            try {
-                let checkedItems = [];
-                try {
-                    checkedItems = JSON.parse(localStorage.getItem('dcChecked') || '[]');
-                } catch (e) {
-                    if (window.storage) {
-                        const result = window.storage.get('dcChecked');
-                        checkedItems = JSON.parse(result || '[]');
-                    }
-                }
-                
-                checkedItems.forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.classList.add('checked');
-                    }
-                });
-            } catch (e) {
-                console.log('Storage not available, using memory only');
-            }
-        }
-    </script>
+function saveToStorage(id){
+    let checked=JSON.parse(localStorage.getItem('dcChecked')||'[]');
+    if(!checked.includes(id)){
+        checked.push(id);
+        localStorage.setItem('dcChecked',JSON.stringify(checked));
+    }
+}
+
+function removeFromStorage(id){
+    let checked=JSON.parse(localStorage.getItem('dcChecked')||'[]');
+    checked=checked.filter(x=>x!==id);
+    localStorage.setItem('dcChecked',JSON.stringify(checked));
+}
+
+function loadProgress(){
+    let checked=JSON.parse(localStorage.getItem('dcChecked')||'[]');
+    checked.forEach(id=>{
+        let el=document.getElementById(id);
+        if(el) el.classList.add('checked');
+    });
+}
+</script>
 </body>
 </html>
